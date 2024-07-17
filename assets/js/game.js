@@ -35,7 +35,7 @@ function preload() {
     // Carga la imagen de las frutas
     let fruitsBMD = game.add.bitmapData(100, 100); // Crear un bitmap de 100x100
     let fruits_image = new Image(); // Crear una imagen
-    fruits_image.src = '/assets/images/circle0.png'; // Cargar la imagen
+    fruits_image.src = '../assets//images/circle0.png'; // Cargar la imagen
     fruitsBMD.ctx.arc(50, 50, 50, 0, Math.PI * 2); // Dibujar un círculo
     fruits_image.onload = function () { // Cuando la imagen se cargue
         fruitsBMD.ctx.drawImage(fruits_image, 0, 0, 100, 100); // Dibujar la imagen
@@ -45,7 +45,7 @@ function preload() {
     // Carga la imagen de la bomba
     let bombsBMD = game.add.bitmapData(100, 100); // Lo mismo que antes
     let bombs_image = new Image();
-    bombs_image.src = '/assets/images/bomb.png';
+    bombs_image.src = '../assets/images/bomb.png';
     bombsBMD.ctx.arc(50, 50, 50, 0, Math.PI * 2);
     bombs_image.onload = function () {
         bombsBMD.ctx.drawImage(bombs_image, 0, 0, 100, 100);
@@ -55,7 +55,7 @@ function preload() {
     // Carga la imagen de las partículas
     let partsBMD = game.add.bitmapData(64, 64); // Lo mismo que antes
     let parts_image = new Image();
-    parts_image.src = '/assets/images/part.png'; // Cargar la imagen
+    parts_image.src = '../assets//images/part.png'; // Cargar la imagen
     partsBMD.ctx.arc(50, 50, 50, 0, Math.PI * 2);
     parts_image.onload = function () {
         partsBMD.ctx.drawImage(parts_image, 0, 0, 100, 100);
@@ -63,7 +63,7 @@ function preload() {
     game.cache.addBitmapData('parts', partsBMD);
 
     // Carga la imagen del fondo
-    this.load.image('background', "/assets/images/bg.jpeg"); // Cargar la imagen del fondo
+    this.load.image('background', "../assets//images/bg.jpeg"); // Cargar la imagen del fondo
 }
 
 // Variables
@@ -90,18 +90,18 @@ function create() {
         game.physics.arcade.gravity.y = 400; // Establece la gravedad
 
         // Crea grupos de frutas y bombas usando una función personalizada
-        let fruit_objects = createGroup(4, game.cache.getBitmapData('fruit'));
-        let bomb_objects = createGroup(4, game.cache.getBitmapData('bomb'));
+        fruit_objects = createGroup(4, game.cache.getBitmapData('fruit'));
+         bomb_objects = createGroup(4, game.cache.getBitmapData('bomb'));
 
         // Prepara los gráficos para la "katana" (trazos de corte)
-        let slashes = game.add.graphics(0, 0);
+        slashes = game.add.graphics(0, 0);
 
         // Crea y configura la etiqueta de puntuación
-        let scoreLabel = game.add.text(10, 10, '');
+    	scoreLabel = game.add.text(10, 10, '');
         scoreLabel.fill = 'white';
 
         // Configura el emisor de partículas para simular el corte de frutas
-        let emitter = game.add.emitter(0, 0, 300);
+        emitter = game.add.emitter(0, 0, 300);
         emitter.makeParticles(game.cache.getBitmapData('parts')); // Usa partículas personalizadas
         emitter.lifespan = 100; // Tiempo de vida de las partículas
         emitter.minParticleSpeed.setTo(-300, -300); // Velocidad mínima de partículas
@@ -211,6 +211,7 @@ function checkIntersects(fruit, callback) {
 		// Verifica si la línea de corte intersecta con el objeto
 		contactPoint.x = game.input.x;
 		contactPoint.y = game.input.y;
+		var distance = Phaser.Point.distance(contactPoint, new Phaser.Point(fruit.x, fruit.y));
 		if (Phaser.Point.distance(contactPoint, new Phaser.Point(fruit.x, fruit.y)) > 110) { // Si se pasa de la hitbox
 			return;
 		}
