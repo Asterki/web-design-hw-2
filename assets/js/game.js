@@ -35,7 +35,7 @@ function preload() {
     // Carga la imagen de las frutas
     let fruitsBMD = game.add.bitmapData(100, 100); // Crear un bitmap de 100x100
     let fruits_image = new Image(); // Crear una imagen
-    fruits_image.src = '../../assets/images/circle0.png'; // Cargar la imagen
+    fruits_image.src = 'https://asterki.github.io/web-design-hw-2/assets/images/circle0.png'; // Cargar la imagen
     fruitsBMD.ctx.arc(50, 50, 50, 0, Math.PI * 2); // Dibujar un círculo
     fruits_image.onload = function () { // Cuando la imagen se cargue
         fruitsBMD.ctx.drawImage(fruits_image, 0, 0, 100, 100); // Dibujar la imagen
@@ -45,7 +45,7 @@ function preload() {
     // Carga la imagen de la bomba
     let bombsBMD = game.add.bitmapData(100, 100); // Lo mismo que antes
     let bombs_image = new Image();
-    bombs_image.src = '../../assets/images/bomb.png';
+    bombs_image.src = 'https://asterki.github.io/web-design-hw-2/assets/images/bomb.png';
     bombsBMD.ctx.arc(50, 50, 50, 0, Math.PI * 2);
     bombs_image.onload = function () {
         bombsBMD.ctx.drawImage(bombs_image, 0, 0, 100, 100);
@@ -55,7 +55,7 @@ function preload() {
     // Carga la imagen de las partículas
     let partsBMD = game.add.bitmapData(64, 64); // Lo mismo que antes
     let parts_image = new Image();
-    parts_image.src = '../../assets/images/part.png'; // Cargar la imagen
+    parts_image.src = 'https://asterki.github.io/web-design-hw-2/assets/images/part.png'; // Cargar la imagen
     partsBMD.ctx.arc(50, 50, 50, 0, Math.PI * 2);
     parts_image.onload = function () {
         partsBMD.ctx.drawImage(parts_image, 0, 0, 100, 100);
@@ -63,7 +63,7 @@ function preload() {
     game.cache.addBitmapData('parts', partsBMD);
 
     // Carga la imagen del fondo
-    this.load.image('background', "../../assets/images/bg.jpeg"); // Cargar la imagen del fondo
+    this.load.image('background', "https://asterki.github.io/web-design-hw-2/assets/images/bg.jpeg"); // Cargar la imagen del fondo
 }
 
 // Variables
