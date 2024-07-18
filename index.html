@@ -39,8 +39,10 @@
 
   <script>
     let mu = document.querySelector(".si");
-    let musi = new Audio("musica.mp4");
+    let musi = new Audio("./assets/music/title.mp3");
     let a = document.querySelector("#midia-btn");
+    musi.loop = true;
+    musi.volume = 0.1;
     musi.play();
     let ani = true;
 
