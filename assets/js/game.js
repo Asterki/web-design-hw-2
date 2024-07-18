@@ -81,7 +81,7 @@ var nextFire = 0;
 
 function create() {
     // Agrega el fondo al juego
-    game.add.sprite(0, 0, 'background');
+    game.add.sprite(0 + (w/12), 0, 'background');
 
     // Configura un retraso de 3 segundos antes de iniciar la lógica del juego
     setTimeout(function () {
