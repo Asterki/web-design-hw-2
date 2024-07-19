@@ -73,6 +73,7 @@ var fruit_objects,
 	line,
 	scoreLabel,
 	score = 0,
+	final_score = 0,
 	points = [];
 
 // Dificultad
@@ -237,10 +238,13 @@ function resetScore() {
 	document.querySelector("#game-over").style.display = "block"; // Muestra el mensaje de game over
 	document.querySelector("#score").innerHTML = score; // Muestra el puntaje
 
+	final_score = score
+	
 	fruit_objects.forEachExists(killFruit); // Elimina todas las frutas
 	bomb_objects.forEachExists(killFruit); // Elimina todas las bombas
 
 	music.volume = 0.1 // Reduce el volumen de la música
+	scoreLabel.text = "Puntaje Final: " + final_score
 }
 
 function render() {
